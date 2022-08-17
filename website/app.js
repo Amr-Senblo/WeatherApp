@@ -3,12 +3,12 @@
 // const body = require("body");
 
 // Create a new date instance dynamically with JS
-let d = new Date();
-let month=d.getMonth()+1;
-let newDate = `${d.getDate()} / ${month} / ${d.getFullYear()}`;
+const d = new Date();
+const month=d.getMonth() +1;
+const newDate = `${d.getDate()} / ${month} / ${d.getFullYear()}`;
 
 let baseUrl = "http://api.openweathermap.org/data/2.5/forecast?zip=";
-let apiKey = "&appid=896caaca042d28daec24876bcb257f47";
+let apiKey = "&appid=896caaca042d28daec24876bcb257f47&units=metric";
 
 const editHtml = (allInfo) => {
   document.getElementById("date").innerHTML = `Date : ${allInfo.date}`;
@@ -66,7 +66,7 @@ const preformEvent = (event) => {
     .then((data) => {
       postData(" http://127.0.0.1:9999/add", {
         date: newDate,
-        temp: ((data.list[0].main.temp)-237.25).toFixed(0),
+        temp: Math.round(data.list[0].main.temp),
         content: feelingsValue,
       });
     })
