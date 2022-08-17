@@ -8,7 +8,7 @@ const month=d.getMonth() +1;
 const newDate = `${d.getDate()} / ${month} / ${d.getFullYear()}`;
 
 let baseUrl = "http://api.openweathermap.org/data/2.5/forecast?zip=";
-let apiKey = "&appid=896caaca042d28daec24876bcb257f47&units=metric";
+const apiKey = "&appid=896caaca042d28daec24876bcb257f47&units=metric";
 
 const editHtml = (allInfo) => {
   document.getElementById("date").innerHTML = `Date : ${allInfo.date}`;
